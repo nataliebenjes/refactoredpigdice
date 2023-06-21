@@ -7,7 +7,7 @@ export function Gameplay() {
 }
 
 
-Gameplay.prototype.getRsndomIntInclusive = function (min, max) {
+Gameplay.prototype.getRandomIntInclusive = function (min, max) {
   min = Math.ceil(1);
   max = Math.ceil(6);
   let mathInt = Math.floor(Math.random() * (max - min + 1) + min); // the maximum is inclusive and the minimum is inclusive
@@ -16,7 +16,7 @@ Gameplay.prototype.getRsndomIntInclusive = function (min, max) {
 }
 
 Gameplay.prototype.randomIntegerReturn = function () {
-  let randomNumber = this.getRsndomIntInclusive();
+  let randomNumber = this.getRandomIntInclusive();
   if (randomNumber !== 1) {
       console.log(this.rollTotal);
       this.rollTotal += randomNumber;
@@ -35,29 +35,32 @@ Gameplay.prototype.checkFinalScore = function () {
   else if (Gameplay.prototype.playerTwoTotal >= 5) {
       this.playerOneTotal = 0;
       this.playerTwoTotal = 0;
-      return "Player Two is the WINER!";
-  }
-}
-
-Gameplay.prototype.pushButton = function () {
-  if (this.rollTotal >= 2 && this.playerTurn === 1) {
-      this.layerOneTotal += this.rollTotal;
-      this.rollTotal = 0;
-      this.playerTurn = 2;
-      console.log("Player " + this.playerTurn);
-      let checkFinal = checkFinalScore()
-      return checkFinal;
-  } else if (this.rollTotal >= 2 && this.playerTurn === 2) {
-      this.playerTwoTotal += this.rollTotal;
-      this.rollTotal = 0;
-      this.playerTurn = 1;
-      console.log("Player " + this.playerTurn);
-      let checkFinal = checkFinalScore()
-      return checkFinal;
+      return "Player Two is the WINNER!";
   } else {
-      return "You have not rolled your dice yet!"
+    return "No winner has been declared"
   }
+  };
 
-}
+
+// Gameplay.prototype.pushButton = function () {
+//   if (this.rollTotal >= 2 && this.playerTurn === 1) {
+//       this.layerOneTotal += this.rollTotal;
+//       this.rollTotal = 0;
+//       this.playerTurn = 2;
+//       console.log("Player " + this.playerTurn);
+//       let checkFinal = checkFinalScore()
+//       return checkFinal;
+//   } else if (this.rollTotal >= 2 && this.playerTurn === 2) {
+//       this.playerTwoTotal += this.rollTotal;
+//       this.rollTotal = 0;
+//       this.playerTurn = 1;
+//       console.log("Player " + this.playerTurn);
+//       let checkFinal = checkFinalScore()
+//       return checkFinal;
+//   } else {
+//       return "You have not rolled your dice yet!"
+//   }
+
+// }
 //test 
 
